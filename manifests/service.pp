@@ -9,8 +9,8 @@ class filebeat::service {
 
   if $filebeat::manage_service {
     service { 'filebeat':
-      ensure    => running,
-      enable    => true,
+      ensure => running,
+      enable => true,
     }
   }
 }
