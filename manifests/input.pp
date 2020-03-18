@@ -7,14 +7,20 @@
 define filebeat::input (
   String[1]                                                  $topic,
   Variant[Stdlib::Absolutepath, Array[Stdlib::Absolutepath]] $paths,
+  Enum['present', 'absent']                                  $ensure = 'present',
   Array[String]                                              $exclude_files = [],
   Hash                                                       $fields        = {},
 ){
   include ::filebeat
 
+  $file_ensure = $ensure ? {
+    'present' => 'file',
+    'absent'  => 'absent',
+  }
+
   file { "filebeat input ${title}":
+    ensure                  => $file_ensure,
     path                    => "/etc/filebeat/configs/${name}.yml",
-    ensure                  => file,
     owner                   => 'root',
     group                   => 'root',
     mode                    => '0600',
