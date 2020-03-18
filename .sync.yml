@@ -1,0 +1,16 @@
+---
+.travis.yml:
+  user: camptocamp
+  secure: "S4U4zzCYdWy6uioJ2pud7FFI4J54C+XUt/jSCrSy0m/Ipn04SfmnrCFHbLtJcKIV8MFH1nvex4nvOn35YiSup8S2dC6LbDRLbhPqUaDjQ8mcRlUshRDvCFXe3pK14lvh9omAkp7mFzUsM93210nr0XdUvGTjJe/FxGePzvTjAcFCneHy+S2arVXYJEwYijwUvulbtvUgLptj8UO3pkVzqjV6cWdpPT5u8whMJdpmkEUJwwq9ZZxhsXvDQTmvwmrKpGvaK7S6+PWQBzy0NYOLNTJepuiroH7gTw0HEN/BhkB8iMJEBBpUZDkyqJYAhWoiX58JjwqSbt9x2zRT5sXZNXFDgoYBrbgF2DTxe9YOxu41P/2DII1NlNjOp8Ih6NeN19yj1zm8yGwpDzYsJjyZxun6jsb8gHO3CpgyWHGELYGhD0X/NtLJG4hXXZYZNzcyr+ybMZkO7lj5HI74byttezHrfkltKx5OAatTDH5qJbEnmU+1fqy54YK8n/kr7UzGt7ux3iBnQ3bCytO6Q963ZjifdPgljszPNmOylAwN++XCwct0SK7+5J22sQCcv93b3/lFivlUvp3TTH/lkWfojsnOfZNqIG13ZvbdOOU++j32OFVPhlrPR6YxWWG2WjN06VLj9JlD+7MoEo/1nymyk2X+Q1t9pb46tn1GqkT3Izk="
+  branches:
+    - master
+    - /^\d/
+  deploy_to_forge:
+    enabled: true
+    tag_regex: "^\\d"
+Gemfile:
+  optional:
+    ':development':
+      - gem: 'github_changelog_generator'
+Rakefile:
+  changelog_version_tag_pattern: '%s'
