@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'filebeat::input' do
-  let(:title) { 'namevar' }
+  let(:title) { 'foo' }
   let(:pre_condition) do
     "class { '::filebeat':
       brokers => ['broker1.example.com'],
@@ -21,6 +21,11 @@ describe 'filebeat::input' do
       let(:facts) { os_facts }
 
       it { is_expected.to compile }
+      it {
+        is_expected.to contain_file('filebeat input foo')
+          .with_path('/etc/filebeat/configs/foo.yml')
+          .with_content(%r{^  paths: \["/var/log/app/app\*.log"\]})
+      }
     end
   end
 end
