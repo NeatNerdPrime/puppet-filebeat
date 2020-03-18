@@ -1,0 +1,17 @@
+<%- |
+  String        $topic,
+  Array[String] $paths,
+  Array[String] $exclude_files = [],
+  Hash          $fields        = {},
+| -%>
+
+- type: log
+  paths: <%= to_json($paths) %>
+<% if $exclude_files.length > 0 {-%>
+  exclude_files: <%= to_json($exclude_files) %>
+<% } -%>
+  fields:
+    log_topic: <%= $topic %>
+<% $fields.each |$k,$v| { %>
+    <%= $k %>: <%= $v %>
+<% } %>

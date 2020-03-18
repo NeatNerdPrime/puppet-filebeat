@@ -1,0 +1,10 @@
+<%- |
+  Array[String] $brokers,
+| -%>
+filebeat.config.inputs:
+  enabled: true
+  path: configs/*.yml
+
+output.kafka:
+  hosts: <%= to_json($brokers) %>
+  topic: '%{[fields.log_topic]}'
