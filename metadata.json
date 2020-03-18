@@ -1,10 +1,12 @@
 {
   "name": "camptocamp-filebeat",
   "version": "0.1.0",
-  "author": "Camptocamp",
-  "summary": "",
+  "author": "camptocamp",
+  "summary": "Filebeat Puppet module",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/camptocamp/puppet-filebeat",
+  "project_page": "https://github.com/camptocamp/puppet-filebeat",
+  "issues_url": "https://github.com/camptocamp/puppet-filebeat/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
