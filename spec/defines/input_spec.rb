@@ -4,8 +4,16 @@ require 'spec_helper'
 
 describe 'filebeat::input' do
   let(:title) { 'namevar' }
+  let(:pre_condition) do
+    "class { '::filebeat':
+      brokers => ['broker1.example.com'],
+    }"
+  end
   let(:params) do
-    {}
+    {
+      topic: 'app-log',
+      paths: '/var/log/app/app*.log',
+    }
   end
 
   on_supported_os.each do |os, os_facts|

@@ -22,7 +22,7 @@ class filebeat::config {
     content => epp(
         'filebeat/filebeat.yaml.epp',
         {
-          'brokers' => $brokers,
+          'brokers' => $filebeat::brokers,
         }
     ),
   }

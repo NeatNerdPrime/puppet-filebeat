@@ -9,7 +9,7 @@ class filebeat::install {
 
   if $filebeat::manage_package {
     package { 'filebeat':
-      ensure => $filebeat_version,
+      ensure => $filebeat::package_version,
     }
   }
 }

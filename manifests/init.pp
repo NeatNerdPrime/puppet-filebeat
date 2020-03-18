@@ -10,7 +10,7 @@ class filebeat (
   Boolean       $manage_package   = true,
   Boolean       $manage_service   = true,
   String        $service_name     = 'filebeat',
-  String        $filebeat_version = '7.3.1',
+  String        $package_version  = '7.3.1',
 ) {
 
 
@@ -22,7 +22,7 @@ class filebeat (
 
   create_resources(
     'filebeat::input',
-    $input,
+    $inputs,
     {
       service_name => $service_name,
     },
