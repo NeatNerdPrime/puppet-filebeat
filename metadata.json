@@ -1,6 +1,6 @@
 {
   "name": "camptocamp-filebeat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "camptocamp",
   "summary": "Filebeat Puppet module",
   "license": "Apache-2.0",
